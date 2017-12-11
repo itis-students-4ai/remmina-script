@@ -7,7 +7,7 @@ TUTTI_GLI_IP="10.2.60.100 10.2.4.140 10.2.4.11 10.2.7.100 10.2.40.100"
 for user in $utenti;do
 
 	for IP in $TUTTI_GLI_IP; do
-		cp remoto.sh /home/$user/soluzione/remoto-$IP.sh
-		cp VM.remmina /home/$user/soluzione
+        sed "s/10.2.60.100/$IP/g" VM.remmina > /home/$user/Scrivania/VM-$IP.remmina
+        sed "s/VM.remmina/VM-$IP.remmina/g" remoto.sh > /home/$user/Scrivania/remoto-$IP.sh
 	done
 done
